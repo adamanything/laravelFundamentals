@@ -15,7 +15,7 @@ class ArticleController extends Controller {
 	 */
 	public function index()
 	{
-		$articles = Article::all();
+		$articles = Article::latest()->get();
 		return view('articles.index', compact('articles'));
 	}
 
@@ -40,8 +40,9 @@ class ArticleController extends Controller {
         $article->title = $request->title;
         $article->body  = $request->body;
         $article->published_at = Carbon::now();
+        $article->save();
 
-		dd($article);
+        return redirect('/articles');
 	}
 
 	/**

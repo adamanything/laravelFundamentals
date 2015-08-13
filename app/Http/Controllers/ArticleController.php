@@ -69,7 +69,8 @@ class ArticleController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
 	}
 
 	/**
@@ -78,9 +79,11 @@ class ArticleController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(CreateArticleRequest $request, $id)
 	{
-		//
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+        return redirect("articles/$id");
 	}
 
 	/**

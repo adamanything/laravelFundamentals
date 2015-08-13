@@ -13,4 +13,4 @@
     {!! Form::input('date', 'published_at', date("Y-m-d"), ['class' => 'form-control']) !!}
 </div>
 
-{!! Form::submit('Create New Article', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit("$submitButtonText", ['class' => 'btn btn-primary']) !!}

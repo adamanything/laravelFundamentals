@@ -5,7 +5,7 @@
 
     {!! Form::open(['url' => 'articles']) !!}
 
-        @include('partials.formTemplate')
+        @include('partials.formTemplate', ['submitButtonText' => 'Add Article'])
 
     {!! Form::close() !!}
     @stop

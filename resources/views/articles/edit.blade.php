@@ -4,7 +4,7 @@
 
     {!! Form::model($article, ['method' => 'PATCH', 'action' => ['ArticleController@update', $article->id ]]) !!}
 
-    @include('partials.formTemplate')
+    @include('partials.formTemplate', ['submitButtonText' => 'Edit Article'])
 
     {!! Form::close() !!}
 

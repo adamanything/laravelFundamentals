@@ -3,7 +3,7 @@
 //use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateArticleRequest;
+use App\Http\Requests\ArticleRequest;
 use App\Http\Middleware;
 use App\Article;
 use Carbon\Carbon;
@@ -37,7 +37,7 @@ class ArticleController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(CreateArticleRequest $request)
+	public function store(ArticleRequest $request)
 	{
 //        $article = new Article;
 //        $article->title = $request->title;
@@ -79,7 +79,7 @@ class ArticleController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(CreateArticleRequest $request, $id)
+	public function update(ArticleRequest $request, $id)
 	{
         $article = Article::findOrFail($id);
         $article->update($request->all());

@@ -1,11 +1,13 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
+//use App\Http\Requests;
 use App\Http\Controllers\Controller;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
+use App\Http\Requests\CreateArticleRequest;
+use App\Http\Middleware;
 use App\Article;
 use Carbon\Carbon;
-use Request;
+use Requests;
 
 class ArticleController extends Controller {
 
@@ -35,7 +37,7 @@ class ArticleController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateArticleRequest $request)
 	{
 //        $article = new Article;
 //        $article->title = $request->title;
@@ -43,7 +45,7 @@ class ArticleController extends Controller {
 //        $article->published_at = Carbon::now();
 //        $article->save();
 
-        Article::create(Request::all());//the request namespace above had to be edited
+        Article::create($request->all());//the request namespace above had to be edited
         return redirect('/articles');
 	}
 
